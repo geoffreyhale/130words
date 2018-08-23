@@ -89,8 +89,11 @@ class UsersController extends Controller
 
         $usersData = [];
         foreach ($posts as $post) {
-            if (!array_key_exists($post->getUser()->getUsername(), $usersData)) {
-                $usersData[$post->getUser()->getUsername()]['wordcount'] = 0;
+            $user = $post->getUser();
+
+            if (!array_key_exists($user->getUsername(), $usersData)) {
+                $usersData[$user->getUsername()]['wordcount'] = 0;
+                $usersData[$user->getUsername()]['displayName'] = $user->getDisplayName() ? $user->getDisplayName() : $user->getUsername();
             }
 
             $usersData[$post->getUser()->getUsername()]['wordcount'] += str_word_count($post->getBody());
