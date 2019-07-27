@@ -5,14 +5,10 @@
 {% if categories is not empty %}
     {% for category in categories %}
         <div style="margin-bottom: 5px;">
-            <form action="{{ path('newPost') }}" method="POST">
-                <input type="hidden" id="category_id" name="category_id" value="{{ category.id }}">
-                <div class="btn-group">
-                    <a href="{{ path('getCategory', {'id' : category.id}) }}" class="btn btn-default">{{ category.name }}</a>
-                    {# <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">New Post</a> #}
-                    <input type="submit" value="New Post" class="btn btn-primary"/>
-                </div>
-            </form>
+            <div class="btn-group">
+                <a href="{{ path('getCategory', {'id' : category.id}) }}" class="btn btn-default">{{ category.name }}</a>
+                <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">New Post</a>
+            </div>
         </div>
     {% endfor %}
 {% endif %}

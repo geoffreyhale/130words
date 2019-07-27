@@ -8,11 +8,7 @@
             <span class="badge">{{ posts|length }}</span></h1>
         <div>
             <a href="{{ path('editCategory', {'id' : category.id}) }}" class="btn btn-primary">Edit Category</a>
-            {# <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">New Post</a> #}
-            <form action="{{ path('newPost') }}" method="POST" style="margin-top: 10px;">
-                <input type="hidden" id="category_id" name="category_id" value="{{ category.id }}">
-                <input type="submit" value="New Post" class="btn btn-primary"/>
-            </form>
+            <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">New Post</a>
         </div>
         {% if posts is not empty %}
             <table class="table table-borderless table-hover">

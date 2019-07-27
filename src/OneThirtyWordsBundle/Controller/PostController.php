@@ -50,9 +50,9 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/post/new", name="newPost")
+     * @Route("/post/new/{categoryId}", name="newPost", requirements={"categoryId": "\d+"})
      */
-    public function newPostAction(Request $request)
+    public function newPostAction(Request $request, $categoryId=null)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -61,9 +61,8 @@ class PostController extends Controller
             ->setUser($this->getUser())
         ;
 
-        $category_id = $request->request->get('category_id');
-        if ($category_id) {
-            $category = $this->getDoctrine()->getManager()->getRepository(Category::class)->findOneBy(array('id' => $category_id));
+        if ($categoryId) {
+            $category = $this->getDoctrine()->getManager()->getRepository(Category::class)->findOneBy(array('id' => $categoryId));
 
             if ($this->getUser() !== $category->getUser()) {
                 throw new \Exception("ACCESS DENIED: This is not your category.");
