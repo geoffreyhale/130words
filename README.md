@@ -14,3 +14,11 @@ bin/console send-email --env=prod
 ```
 
 http://symfony.com/doc/current/deployment.html
+
+## Run in Dev Mode
+
+https://symfony.com/doc/3.4/setup.html#running-the-symfony-application
+
+```
+php bin/console server:run
+```
