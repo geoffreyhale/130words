@@ -1,4 +1,6 @@
-<h3><i class="fa fa-folder-open" aria-hidden="true"></i> Categories</h3>
+<h3>
+    <i class="fa fa-folder-open" aria-hidden="true"></i>
+    Categories</h3>
 
 {% if categories is not empty %}
     {% for category in categories %}
@@ -7,11 +9,12 @@
                 <input type="hidden" id="category_id" name="category_id" value="{{ category.id }}">
                 <div class="btn-group">
                     <a href="{{ path('getCategory', {'id' : category.id}) }}" class="btn btn-default">{{ category.name }}</a>
-                    <input type="submit" value="New Post" class="btn btn-primary" />
+                    {# <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">New Post</a> #}
+                    <input type="submit" value="New Post" class="btn btn-primary"/>
                 </div>
             </form>
         </div>
-    {%  endfor %}
+    {% endfor %}
 {% endif %}
 
 <a href="{{ path('newCategory') }}" class="btn btn-primary btn-lg">New Category</a>
