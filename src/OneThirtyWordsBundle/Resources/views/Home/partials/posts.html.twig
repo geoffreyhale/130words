@@ -1,4 +1,9 @@
-<h3><i class="fa fa-pencil" aria-hidden="true"></i> Posts</h3>
+<h3>
+    Posts
+    <a href="{{ path('newPost') }}" class="btn btn-primary">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+    </a>
+</h3>
 {% if posts is not empty %}
     <table class="table table-borderless table-hover">
         <tbody>
