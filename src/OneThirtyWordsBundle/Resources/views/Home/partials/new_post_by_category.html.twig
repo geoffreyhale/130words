@@ -1,6 +1,9 @@
 <h3>
-    <i class="fa fa-folder-open" aria-hidden="true"></i>
-    Categories</h3>
+    Categories
+    <a href="{{ path('getCategories') }}" class="btn btn-default">
+        <i class="fa fa-folder-open" aria-hidden="true"></i>
+    </a>
+</h3>
 
 {% if categories is not empty %}
     {% for category in categories %}
