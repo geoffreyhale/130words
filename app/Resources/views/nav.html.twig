@@ -36,13 +36,19 @@
                 <ul class="nav navbar-nav navbar-right nav-user-container">
                     <li class="hidden-xs">
                         <a href="{{ path('getUser', {'user' : app.user.id}) }}" class="navbar-link" style="display: inline-block;">{{ app.user.displayName ? app.user.displayName : app.user.username }}</a>
+
+                        {% set total_days_130 = one_thirty_service.getUser130WordsCount(app.user) %}
                         <span class="badge" title="days you've written 130 words :)">
-                            {{ one_thirty_service.getUser130WordsCount(app.user) }}
+                            total:
+                            {{ total_days_130 }}
+                            day{{ total_days_130 > 1 ? 's' : '' }}
                         </span>
-                        {% set streak = one_thirty_service.getUser130WordsStreak(app.user) %}
-                        <span class="badge" title="consecutive days you've written 130 words" style="background-color: {{ streak > 0 ? '#468847' : '#d9534f' }}">
+
+                        {% set streak_130 = one_thirty_service.getUser130WordsStreak(app.user) %}
+                        <span class="badge" title="consecutive days you've written 130 words" style="background-color: {{ streak_130 > 0 ? '#468847' : '#d9534f' }}">
                             streak:
-                            {{ streak }}
+                            {{ streak_130 }}
+                            day{{ streak_130 > 1 ? 's' : '' }}
                         </span>
                     </li>
                     <li class="dropdown">
