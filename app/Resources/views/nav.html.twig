@@ -34,7 +34,7 @@
             {% endif %}
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <ul class="nav navbar-nav navbar-right nav-user-container">
-                    <li class="hidden-xs hidden-xs">
+                    <li class="hidden-xs">
                         <a href="{{ path('getUser', {'user' : app.user.id}) }}" class="navbar-link" style="display: inline-block;">{{ app.user.displayName ? app.user.displayName : app.user.username }}</a>
                         <span class="badge" title="days you've written 130 words :)">
                             {{ one_thirty_service.getUser130WordsCount(app.user) }}
