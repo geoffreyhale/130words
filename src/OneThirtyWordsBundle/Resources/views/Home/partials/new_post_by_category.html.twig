@@ -6,12 +6,19 @@
 </h3>
 
 {% if categories is not empty %}
-    {% for category in categories %}
-        <div style="margin-bottom: 5px;">
-            <div class="btn-group">
-                <a href="{{ path('getCategory', {'id' : category.id}) }}" class="btn btn-default">{{ category.name }}</a>
-                <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">New Post</a>
+    <div style="margin-bottom: 15px;">
+        {% for category in categories %}
+            <div style="margin-bottom: 5px;">
+                <div class="btn-group">
+                    <a href="{{ path('getCategory', {'id' : category.id}) }}" class="btn btn-default">{{ category.name }}</a>
+                    <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">New Post</a>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endif %}
+
+<a href="{{ path('getCategories') }}" class="btn btn-default">
+    <i class="fa fa-folder-open" aria-hidden="true"></i>
+    Categories...
+</a>
