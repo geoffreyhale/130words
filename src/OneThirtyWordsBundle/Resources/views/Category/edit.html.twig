@@ -6,19 +6,17 @@
             <i class="fa fa-folder-open" aria-hidden="true"></i>
             {{ category.name }}</h1>
         {% if form is defined %}
-            {{ form_start(form, {'attr': {'class': 'form'}}) }}
-            <div class="form-group">
-                {{ form_label(form.name) }}
-                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            <div style="margin-bottom: 5px;">
+                {{ form_start(form, {'attr': {'class': 'form'}}) }}
+                {# {{ form_label(form.name) }} #}
+                <div class="input-group">
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                    <span class="input-group-btn">
+                        {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                    </span>
+                </div>
+                {{ form_end(form) }}
             </div>
-            <div class="form-group">
-                {{ form_label(form.hide) }}<br>
-                {{ form_widget(form.hide, {'attr': {'class': ''}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-            </div>
-            {{ form_end(form) }}
         {% endif %}
         <a href="{{ path('hideCategory', {'id': category.id }) }}" class="btn btn-default">Hide</a>
         <a href="{{ path('unhideCategory', {'id': category.id }) }}" class="btn btn-default">Unhide</a>

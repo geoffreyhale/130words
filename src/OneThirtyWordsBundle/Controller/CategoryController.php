@@ -83,8 +83,7 @@ class CategoryController extends Controller
 
         $form = $this->createFormBuilder($category)
             ->add('name', TextType::class)
-            ->add('hide', CheckboxType::class, array('required' => false))
-            ->add('submit', SubmitType::class, array('label' => 'Update'))
+            ->add('submit', SubmitType::class, array('label' => 'Update Name'))
             ->getForm();
 
         $form->handleRequest($request);
