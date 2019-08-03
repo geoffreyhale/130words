@@ -4,19 +4,20 @@
         <i class="fa fa-pencil" aria-hidden="true"></i>
     </a>
 </h3>
+
 {% if posts is not empty %}
     <table class="table table-borderless table-hover">
         <tbody>
-        {% for post in posts %}
-            <tr>
-                <td style="white-space: nowrap;">
-                    <strong>{{ (post.category is not null) ? post.category.name : "Uncategorized"}}</strong>
-                </td>
-                <td style="width: 100%;">
-                    <a href="{{ path('editPost', {'id' : post.id}) }}">{{ post.body[:400] ~ '...' }}</a>
-                </td>
-            </tr>
-        {%  endfor %}
+            {% for post in posts %}
+                <tr>
+                    <td style="white-space: nowrap;">
+                        <strong>{{ (post.category is not null) ? post.category.name : "Uncategorized"}}</strong>
+                    </td>
+                    <td style="width: 100%;">
+                        <a href="{{ path('editPost', {'id' : post.id}) }}">{{ post.body[:400] ~ '...' }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endif %}
