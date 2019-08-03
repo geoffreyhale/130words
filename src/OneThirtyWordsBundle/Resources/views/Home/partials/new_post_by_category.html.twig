@@ -21,6 +21,7 @@
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
                     <a href="{{ path('getCategory', {'id' : category.id}) }}" class="btn btn-default">{{ category.name }}</a>
+                    {# <a href="{{ path('hideCategory', {'id': category.id }) }}" class="btn btn-link">Hide</a> #}
                 </div>
             </div>
         {% endfor %}
