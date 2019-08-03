@@ -20,5 +20,7 @@
             </div>
             {{ form_end(form) }}
         {% endif %}
+        <a href="{{ path('hideCategory', {'id': category.id }) }}" class="btn btn-default">Hide</a>
+        <a href="{{ path('unhideCategory', {'id': category.id }) }}" class="btn btn-default">Unhide</a>
     </div>
 {% endblock %}
