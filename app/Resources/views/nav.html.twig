@@ -15,11 +15,21 @@
         <div class="collapse navbar-collapse" id="onethirtywords-navbar-collapse-1">
             {% if app.user is not null %}
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ path('homepage') }}" class="navbar-link">Home</a></li>
-                    <li><a href="{{ path('newPost') }}" class="navbar-link">Write</a></li>
-                    <li><a href="{{ path('getPosts') }}" class="navbar-link">Posts</a></li>
-                    <li><a href="{{ path('getCategories') }}" class="navbar-link">Categories</a></li>
-                    <li><a href="{{ path('community') }}" class="navbar-link">Community</a></li>
+                    <li>
+                        <a href="{{ path('homepage') }}" class="navbar-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('newPost') }}" class="navbar-link">Write</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('getPosts') }}" class="navbar-link">Posts</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('getCategories') }}" class="navbar-link">Categories</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('community') }}" class="navbar-link">Community</a>
+                    </li>
                 </ul>
             {% endif %}
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -31,22 +41,33 @@
                         </span>
                         {% set streak = one_thirty_service.getUser130WordsStreak(app.user) %}
                         <span class="badge" title="consecutive days you've written 130 words" style="background-color: {{ streak > 0 ? '#468847' : '#d9534f' }}">
-                            streak: {{ streak }}
+                            streak:
+                            {{ streak }}
                         </span>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"></i><span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                            <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('fos_user_security_logout') }}">Sign Out</a></li>
+                            <li>
+                                <a href="{{ path('fos_user_security_logout') }}">Sign Out</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
             {% else %}
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ path('fos_user_security_login') }}" class="navbar-link">Sign In</a></li>
-                    <li><a href="{{ path('fos_user_registration_register') }}" class="navbar-link">Register</a></li>
+                    <li>
+                        <a href="{{ path('fos_user_security_login') }}" class="navbar-link">Sign In</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_registration_register') }}" class="navbar-link">Register</a>
+                    </li>
                 </ul>
             {% endif %}
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
 </nav>
