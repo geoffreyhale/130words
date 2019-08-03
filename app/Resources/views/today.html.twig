@@ -10,10 +10,16 @@
                     </div>
                     <div class="pull-right">
                         {% if wordCount < 130 %}
-                            <span class="text-danger" style="display: inline-block">-{{ 130 - wordCount }}</span>
+                            <span style="display: inline-block">
+                                <small>need</small>
+                                <strong class="text-danger">{{ 130 - wordCount }}</strong>
+                                <small>more words for 130 today</small>
+                            </span>
                         {% endif %}
                         <h2 title="words saved today" style="display: inline-block; margin: 20px 15px;">{{ wordCount }}
-                            <small>words today</small>
+                            <small>words today
+                                <small>(updates when you save a post)</small>
+                            </small>
                         </h2>
                     </div>
                 </div>
