@@ -132,4 +132,58 @@ class CategoryController extends Controller
             'categories' => $categoriesViewArray,
         ));
     }
+
+    /**
+     * @Route("/category/{id}/hide", name="hideCategory")
+     */
+    public function hideCategoryAction(Category $category)
+    {
+        if ($this->getUser() !== $category->getUser()) {
+            throw new \Exception("ACCESS DENIED: This is not your category.");
+        }
+
+        $category->setHide(true);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush($category);
+
+        // TODO prefer ajax w/o navigation
+        // $response = new Response();
+        // $response->setStatusCode(Response::HTTP_OK);
+        // return $response->send();
+
+        return $this->redirect(
+            $this->generateUrl(
+                'getCategory',
+                array('id'  => $category->getId())
+            )
+        );
+    }
+
+    /**
+     * @Route("/category/{id}/unhide", name="unhideCategory")
+     */
+    public function unhideCategoryAction(Category $category)
+    {
+        if ($this->getUser() !== $category->getUser()) {
+            throw new \Exception("ACCESS DENIED: This is not your category.");
+        }
+
+        $category->setHide(false);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush($category);
+
+        // TODO prefer ajax w/o navigation
+        // $response = new Response();
+        // $response->setStatusCode(Response::HTTP_OK);
+        // return $response->send();
+
+        return $this->redirect(
+            $this->generateUrl(
+                'getCategory',
+                array('id'  => $category->getId())
+            )
+        );
+    }
 }
