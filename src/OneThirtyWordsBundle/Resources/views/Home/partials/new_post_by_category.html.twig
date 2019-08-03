@@ -1,8 +1,15 @@
 <h3>
     Categories
-    <a href="{{ path('getCategories') }}" class="btn btn-default" style="margin-left: 5px;">
-        <i class="fa fa-folder-open" aria-hidden="true"></i>
+    <div class="btn-group" style="margin-left: 5px;">
+        {# <a href="{{ path('newCategory') }}" class="btn btn-primary">
+            <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 5px"></i>
+            New
+        </a> #}
+        <a href="{{ path('getCategories') }}" class="btn btn-default">
+            <i class="fa fa-list" aria-hidden="true" style="margin-right: 5px"></i>
+            List
     </a>
+    </div>
 </h3>
 
 {% if categories is not empty %}
