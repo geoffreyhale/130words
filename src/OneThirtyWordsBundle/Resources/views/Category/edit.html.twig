@@ -2,7 +2,9 @@
 
 {% block content %}
     <div id="category-edit" class="container-fluid">
-        <h1><i class="fa fa-folder-open" aria-hidden="true"></i> {{ category.name }}</h1>
+        <h1>
+            <i class="fa fa-folder-open" aria-hidden="true"></i>
+            {{ category.name }}</h1>
         {% if form is defined %}
             {{ form_start(form, {'attr': {'class': 'form'}}) }}
             <div class="form-group">
