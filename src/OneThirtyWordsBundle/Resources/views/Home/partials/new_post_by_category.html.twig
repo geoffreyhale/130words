@@ -17,8 +17,10 @@
         {% for category in categories %}
             <div style="margin-bottom: 5px;">
                 <div class="btn-group">
+                    <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
                     <a href="{{ path('getCategory', {'id' : category.id}) }}" class="btn btn-default">{{ category.name }}</a>
-                    <a href="{{ path('newPost', {'categoryId' : category.id}) }}" class="btn btn-primary">New Post</a>
                 </div>
             </div>
         {% endfor %}
