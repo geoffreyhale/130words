@@ -6,7 +6,9 @@
             <div class="row {{ (wordCount < 130) ? 'bg-danger' : 'bg-success'}}">
                 <div class="col-md-12">
                     <div class="pull-left">
-                        <h2 style="margin: 20px 15px;">{{ "now"|date('l, F jS') }}</h2>
+                        <h2 style="margin: 20px 15px;">
+                            <a href="{{ path('homepage') }}" style="color: inherit">{{ "now"|date('l, F jS') }}</a>
+                        </h2>
                     </div>
                     <div class="pull-right">
                         {% if wordCount < 130 %}
