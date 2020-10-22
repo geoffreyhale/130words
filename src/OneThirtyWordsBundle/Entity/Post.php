@@ -44,6 +44,13 @@ class Post
      */
     private $date;
 
+    /**
+     * @var int
+     * 
+     * @ORM\Column(name="wordcount", type="integer", nullable=true, options={"default" : 0})
+     */
+    private $wordcount;
+
 
     /**
      * @var User
@@ -157,6 +164,30 @@ class Post
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set wordcount
+     *
+     * @param string $wordcount
+     *
+     * @return Post
+     */
+    public function setWordcount($wordcount)
+    {
+        $this->wordcount = $wordcount;
+
+        return $this;
+    }
+
+    /**
+     * Get wordcount
+     *
+     * @return integer
+     */
+    public function getWordcount()
+    {
+        return $this->wordcount;
     }
 }
 

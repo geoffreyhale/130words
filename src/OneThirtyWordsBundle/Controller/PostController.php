@@ -120,6 +120,7 @@ class PostController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $post = $form->getData();
+            $post->setWordcount(str_word_count($post->getBody()));
             $em->persist($post);
             $em->flush();
         }
